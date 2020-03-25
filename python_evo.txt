@@ -1,0 +1,50 @@
+ evo_ape tum lidar.txt camera.txt -asv --t_max_diff=1 --plot_mode xyz
+--------------------------------------------------------------------------------
+Loaded 4 stamps and poses from: lidar.txt
+Loaded 4 stamps and poses from: camera.txt
+Synchronizing trajectories...
+Found 4 of max. 4 possible matching timestamps between...
+	lidar.txt
+and:	camera.txt
+..with max. time diff.: 1.0 (s) and time offset: 0.0 (s).
+--------------------------------------------------------------------------------
+Aligning using Umeyama's method... (with scale correction)
+Rotation of alignment:
+[[-0.99372229  0.01886024  0.11027376]
+ [ 0.00593614 -0.97540995  0.2203184 ]
+ [ 0.11171738  0.21958991  0.96917465]]
+Translation of alignment:
+[-0.13494076 -0.02159941 -0.73374756]
+Scale correction: 11.859623197985684
+--------------------------------------------------------------------------------
+Compared 4 absolute pose pairs.
+Calculating APE for translation part pose relation...
+--------------------------------------------------------------------------------
+APE w.r.t. translation part (m)
+(with Sim(3) Umeyama alignment)
+
+       max	1.508782
+      mean	0.956028
+    median	0.844841
+       min	0.625648
+      rmse	1.015078
+       sse	4.121533
+       std	0.341165
+
+
+
+
+
+>> R
+R =
+
+   -0.9937    0.0189    0.1103
+    0.0059   -0.9754    0.2203
+    0.1117    0.2196    0.9692
+
+>> t
+t =
+
+   12.2159
+   -0.2517
+   17.2134
