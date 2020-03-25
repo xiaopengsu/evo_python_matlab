@@ -2,6 +2,22 @@
 https://blog.csdn.net/KYJL888/article/details/90517569
 https://blog.csdn.net/KYJL888/article/details/89956551
 
+文件说明
+├── camera.txt   //视觉轨迹数据
+├── date_bak
+├── evo_python.py  //python的EVO核心程序
+├── lidar.txt  //雷达轨迹数据
+├── myevo.m   //MATLAB的evo主程序,其中只求TR
+├── myevo_rts.m  //MATLAB的evo主程序,其中只求TRS,结果同python的EVO 
+├── python_evo.txt
+├── readme_s.txt
+├── umeyama.m //MATLAB的evo的核心函数,其中只求TR
+└── umeyama_rts.m  //MATLAB的evo的核心函数,其中只求TRS,结果同python的EVO 
+
+
+
+python的evo使用
+
 evo_traj tum  fr2_desk_ORB.txt  --ref=fr2_desk_groundtruth.txt -p --plot_mode=xyz
 evo_ape tum  camera.txt -asv --t_max_diff=100 --plot_mode xyz
 
@@ -39,7 +55,7 @@ APE w.r.t. translation part (m)
        std	0.370661
 
 ________________________________________________
-
+MATLAB的evo使用摘要
 mono = load('lidar.txt');
 csv = load('camera.txt');
 
@@ -58,6 +74,7 @@ t =
   -22.4101
 
 
+python的evo使用
 
 evo_ape tum  camera.txt lidar.txt -asv --t_max_diff=100 --plot_mode xyz
 evo_ape tum  camera.txt lidar.txt -asv --t_max_diff=100 --plot_mode xyz
@@ -95,7 +112,7 @@ APE w.r.t. translation part (m)
 
 
 ___________________
-matlab
+matlab 的evo使用摘要与分析
 mono = load('camera.txt');
 true = load('lidar.txt');
 
@@ -116,3 +133,7 @@ gt =   B(python)   [[true原始数据归一初始原点后转置]]
          0   -0.8698   -0.2915
          0   40.8038   28.0412
 
+
+主要解决的问题  np.mean(np.sum(-->sum(mean(
+Sx=X_demean.*X_demean; % sx = np.mean(np.sum(Xc*Xc, 0))
+Sx=sum(mean(Sx));%     sx = np.mean(np.sum(Xc*Xc, 0))
